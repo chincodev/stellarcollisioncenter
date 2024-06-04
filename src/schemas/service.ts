@@ -31,7 +31,7 @@ export default defineType({
             type: 'string',
             validation: Rule => Rule.unique()
         }),
-        
+
         defineField({
             name: 'short_title',
             title: 'Short Title',
@@ -43,9 +43,12 @@ export default defineType({
             title: 'Slug',
             type: 'slug',
             options: {
-                source: 'short_title',
-                maxLength: 96,
+              source: 'title',
+              maxLength: 96,
+              isUnique: (value, context) => context.defaultIsUnique(value, context),
             },
+            validation: (rule) => rule.required(),
+
         }),
         defineField({
             name: 'overview',
