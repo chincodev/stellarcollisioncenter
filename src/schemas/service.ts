@@ -31,6 +31,7 @@ export default defineType({
             type: 'string',
             validation: Rule => Rule.unique()
         }),
+        
         defineField({
             name: 'short_title',
             title: 'Short Title',
