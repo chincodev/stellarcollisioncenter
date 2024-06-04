@@ -1,0 +1,5 @@
+userAgent: '*',
+allow: '/',
+disallow: /private/
+disallow: /privacy-policy
+disallow: /terms-conditions
