@@ -7,7 +7,7 @@ import { isEmpty } from "lodash";
 
 export const getStaticProps = async ({ draftMode = false, params = {} }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
-  const page = await getPageBySlug(client, '404')
+  const page = await getPageBySlug(client, 'page404')
   return {
     props: {
       draftMode,
