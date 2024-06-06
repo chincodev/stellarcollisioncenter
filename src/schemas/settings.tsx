@@ -138,6 +138,14 @@ export default {
                 'location',   // Default: not included
             ],
         },
-      },
+      },{
+        title: '404 Page Title',
+        name: 'not_found_title',
+        type: 'string',
+      },{
+        title: '404 Page Description',
+        name: 'not_found_description',
+        type: 'string',
+      }
     ],
   };

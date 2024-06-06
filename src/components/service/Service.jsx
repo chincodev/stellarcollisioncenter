@@ -61,9 +61,13 @@ function Service(props) {
     };
   }, []);
   return (
-    <div className="h2-services-area">
-     
-      {/* <div className="services-top">
+        
+           
+   
+    <div className="pt-120 mb-120">
+       <div className="container">
+          <div className="row">
+            {/* <div className="services-top">
         <Swiper {...serviceSlider} className="swiper h2-services-slider">
           <div className="swiper-wrapper">
             <SwiperSlide className="swiper-slide">
@@ -264,10 +268,6 @@ function Service(props) {
           </div>
         </Swiper>
       </div> */}
-      <div className="services-btm pt-120 mb-120">
-        <div className="container">
-          <div className="row">
-           
             {
               !isEmpty(props.image) ? (
                 <>
@@ -376,11 +376,9 @@ function Service(props) {
                 </>
               )
             }
-            
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+          </div>
   );
 }
 

@@ -41,7 +41,12 @@ frontpage,
     navId,
     'items': items[]->{
       slug,
-      title
+      title,
+      'items': items[]->{
+        slug,
+        title,
+        short_title
+      }
     }
   },
   "footerLeftNavigation": footerLeftNavigation->{
@@ -50,7 +55,8 @@ frontpage,
     navId,
     'items': items[]->{
       slug,
-      title
+      title,
+      short_title
     }
   },
   "footerRightNavigation": footerRightNavigation->{
@@ -59,7 +65,8 @@ frontpage,
     navId,
     'items': items[]->{
       slug,
-      title
+      title,
+      short_title
     }
   },
   "footerBottomNavigation": footerBottomNavigation->{
@@ -74,8 +81,39 @@ frontpage,
 }`
 export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]`
 
-export const getPageBySlugQuery =  groq`*[_type == "page" && slug.current == $slug][0]`
+export const getPageBySlugQuery =  groq`*[_type == "page" && slug.current == $slug][0]{
+  seo_description,
+  _updatedAt,
+  show_banner,
+banner_title,
+banner_image,
+  seo_title,
+  _rev,
+  _createdAt,
+  _type,
+  _id,
+  title,
+  slug,
+  seo_keywords,
+  pageBuilder,
+}`
 
+export const getServiceBySlugQuery =  groq`*[_type == "service" && slug.current == $slug][0]{
+  seo_description,
+  _updatedAt,
+  seo_title,
+  show_banner,
+  banner_title,
+  banner_image,
+  _rev,
+  _createdAt,
+  _type,
+  _id,
+  title,
+  slug,
+  seo_keywords,
+  pageBuilder,
+}`
 // {
 //   seo_description,
 //   _updatedAt,
@@ -111,6 +149,7 @@ export const servicesSlugsQuery = groq`
 export const pagesSlugsQuery = groq`
 *[_type == "page" && defined(slug.current)][].slug.current
 `
+
 
 
 export interface Post {

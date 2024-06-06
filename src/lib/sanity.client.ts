@@ -1,10 +1,24 @@
 import { createClient, type SanityClient } from 'next-sanity'
 import { apiVersion, dataset, projectId, useCdn } from '~/lib/sanity.api'
-import { getPageBySlugQuery } from './sanity.queries'
+import { getPageBySlugQuery, getServiceBySlugQuery } from './sanity.queries'
 import { ImageAsset, Slug } from 'sanity'
 
 export interface Page {
   _type: 'page'
+  _id: string
+  _createdAt: string
+  seo_title: string
+  seo_description: string
+  seo_keywords: string
+  og_card_image: ImageAsset
+  title?: string
+  slug: Slug,
+  pageBuilder: any[],
+  _updatedAt: string
+}
+
+export interface Service {
+  _type: 'service'
   _id: string
   _createdAt: string
   seo_title: string
@@ -45,4 +59,12 @@ export async function getPageBySlug(
   slug: string
 ): Promise<Page> {
   return (await client.fetch(getPageBySlugQuery, { slug })) || ({} as any)
+}
+
+
+export async function getServiceBySlug(
+  client: SanityClient,
+  slug: string
+): Promise<Service> {
+  return (await client.fetch(getServiceBySlugQuery, { slug })) || ({} as any)
 }

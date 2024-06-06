@@ -67,7 +67,7 @@ App.getInitialProps = async (appContext) => {
 		const [ settings ] = await Promise.all([
 			getSettings(client),
 		])
-    console.log(settings);
+
 		return { 
 		  ..._appProps, 
 		  pageProps: { 

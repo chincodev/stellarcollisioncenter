@@ -1,3 +1,4 @@
+import { isEmpty } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useReducer, useRef } from "react";
@@ -92,12 +93,41 @@ function Header(props) {
           <ul className="menu-list">
                 
             {
-              items && Array.isArray(items) && items.length > 0 && items.map(x => <li className={currentRoute === "/"+x.slug.current ? 'active' : ''}>
-                <Link legacyBehavior href={'/'+x.slug.current}>
-              
-                  <a>{console.log(x)}{x.title}</a>
-                </Link>
-              </li>)
+              items && Array.isArray(items) && items.length > 0 && items.map(x => 
+                 !x.items ? (
+                    <li className={currentRoute === "/"+x.slug.current ? 'active' : ''}>
+                    <Link legacyBehavior href={'/'+x.slug.current}>
+                      <a>{x.title}</a>
+                    </Link>
+                  </li>
+                ) : (
+                  <li className={currentRoute.includes("/services") ? 'active menu-item-has-children' : 'menu-item-has-children'}>
+              <Link legacyBehavior href={`/${x.slug.current}`}>
+                <a>{x.title}</a>
+              </Link>
+              <i
+                className="bi bi-plus dropdown-icon"
+                onClick={() => dispatch({ type: "services" })}
+              />
+              <ul
+                className={
+                  state.activeMenu === "services"
+                    ? "sub-menu  d-block"
+                    : "sub-menu d-xl-block d-none"
+                }
+              >
+                {
+                  x.items.map(y => <li className={currentRoute === `/${x.slug.current}/${y.slug.current}` ? 'active' : ''}>
+                  <Link legacyBehavior passHref href={`/${x.slug.current}/${y.slug.current}`}>
+                    <a>{y.short_title}</a>
+                  </Link>
+                </li>)
+                }
+              </ul>
+            </li>
+              )
+                
+              )
             }
             {/* <li className={currentRoute === "/" ? 'active' : ''}>
               <Link legacyBehavior href="/">

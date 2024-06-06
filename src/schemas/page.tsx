@@ -35,13 +35,26 @@ export default defineType({
             title: 'Title',
         }),
         defineField({
-            name: 'slug', 
-            type: 'slug',
+            name: 'slug',
             title: 'Slug',
+            type: 'slug',
             options: {
-                source: 'title',
-                maxLength: 96,
+              source: 'title',
+              maxLength: 96,
+              isUnique: (value, context) => context.defaultIsUnique(value, context),
             },
+            validation: (rule) => rule.required(),
+
+        }),
+        defineField({
+            name: 'show_banner',
+            title: 'Enable Banner',
+            type: 'boolean',
+        }),
+        defineField({
+            name: 'banner_title',
+            title: 'Banner Title',
+            type: 'string',
         }),
         defineField({
             name: 'banner_image',

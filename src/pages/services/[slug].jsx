@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import Breadcrumb from "../components/breadcrumb/Breadcrumb";
-import Layout from "../components/Layout";
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
+import Layout from "../../components/Layout";
 import Head from "next/head";
-import { getPageBySlug } from '../lib/sanity.client'  
+import { getServiceBySlug } from '../../lib/sanity.client'  
 import { ToastContainer, toast } from "react-toastify";
 import {
-    pagesSlugsQuery,
-} from '../lib/sanity.queries'
-import { getClient } from "../lib/sanity.client";
+    servicesSlugsQuery,
+} from '../../lib/sanity.queries'
+import { getClient } from "../../lib/sanity.client";
 import { isEmpty } from "lodash";
-import PageBuilder from "../components/PageBuilder";
+import PageBuilder from "../../components/PageBuilder";
   
 export const getStaticProps = async ({ draftMode = false, params = {} }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
-  const page = await getPageBySlug(client, params.slug)
 
+  const page = await getServiceBySlug(client, params.slug)
+    console.log(page.pageBuilder);
   if (!page || isEmpty(page)) {
     return {
       notFound: true,
@@ -32,7 +33,7 @@ export const getStaticProps = async ({ draftMode = false, params = {} }) => {
 }
 
 
-function Page(props) {
+function Service(props) {
   return (
     <Layout
       global={props.global}
@@ -41,7 +42,6 @@ function Page(props) {
       image={props.page.og_card_image}
       url={"/"+(props.page.slug === "home" ? '' : props.page.slug)}
     >
-      <ToastContainer />
       {
         props.page.show_banner && <Breadcrumb pageName={props.page.title} pageTitle={props.page.title} img={props.page.banner_image}/>
       }
@@ -50,13 +50,13 @@ function Page(props) {
   );
 }
 
-export default Page;
+export default Service;
 
 export const getStaticPaths = async () => {
     const client = getClient()
-    const slugs = await client.fetch(pagesSlugsQuery)
+    const slugs = await client.fetch(servicesSlugsQuery)
     return {
-        paths: slugs?.map((slug) => `/${slug}`) || [],
+        paths: slugs?.map((slug) => `/services/${slug}`) || [],
         fallback: 'blocking',
     }
 }

@@ -38,6 +38,40 @@ export default defineType({
             type: 'string',
             description: 'Commonly used in navbar links labels'
         }),
+
+        defineField({
+            name: 'show_banner',
+            title: 'Enable Banner',
+            type: 'boolean',
+        }),
+        defineField({
+            name: 'banner_title',
+            title: 'Banner Title',
+            type: 'string',
+        }),
+        defineField({
+            name: 'banner_image',
+            title: 'Banner Image',
+            type: 'image',
+            fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alternative text',
+                  description: 'Important for SEO and accessiblity.',
+                },
+              ],
+            options: {
+                hotspot: true,
+                metadata: [
+                    'blurhash',   // Default: included
+                    'lqip',       // Default: included
+                    'palette',    // Default: included
+                    'exif',       // Default: not included
+                    'location',   // Default: not included
+                ],
+            },
+        }),
         defineField({
             name: 'slug',
             title: 'Slug',
@@ -56,22 +90,6 @@ export default defineType({
             type: 'string',
             placeholder:'Describe this area shortly',
             validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-            name: 'coverImage',
-            title: 'Cover Image',
-            type: 'image',
-            fields: [
-                {
-                    name: 'alt',
-                    type: 'string',
-                    title: 'Alternative text',
-                    description: 'Important for SEO and accessiblity.',
-                },
-            ],
-            options: {
-                hotspot: true,
-            },
         }),
         defineField({
             name: 'pageBuilder',

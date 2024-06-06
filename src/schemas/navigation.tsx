@@ -20,11 +20,22 @@ export default {
             title: "Navigation Id"
           },
           {
+            name: 'slug',
+            title: 'Slug',
+            type: 'slug',
+            options: {
+              source: 'title',
+              maxLength: 96,
+              isUnique: (value, context) => context.defaultIsUnique(value, context),
+            },
+
+        },
+          {
             name: "items",
             type: "array",
             title: "Navigation items",
             of: [{
-              name: 'page',
+              name: 'item',
               type: 'reference',
               description: 'Select the page that this route should point to',
               to: [
@@ -32,9 +43,11 @@ export default {
                   type: 'page',
                 },{
                   type: 'service',
+                },{
+                  type: 'navigation',
                 }
               ]
               }]
           }      
     ]
-}
+} 
