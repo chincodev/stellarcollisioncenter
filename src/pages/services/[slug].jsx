@@ -15,7 +15,6 @@ export const getStaticProps = async ({ draftMode = false, params = {} }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
   const page = await getServiceBySlug(client, params.slug)
-    console.log(page.pageBuilder);
   if (!page || isEmpty(page)) {
     return {
       notFound: true,

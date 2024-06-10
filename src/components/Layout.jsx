@@ -15,7 +15,7 @@ function Layout(props) {
 				url={props.url}
 			/>
 			<Header {...props.global.settings} />
-			{props.children}
+				{props.children}
 			<Footer {...props.global.settings}/>
 		</>
 	);

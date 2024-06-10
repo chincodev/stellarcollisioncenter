@@ -57,7 +57,7 @@ function OtherServiceSlide(props) {
             <div className="inner-section-title">
               <h2>Other Services</h2>
             </div>
-            {console.log(props)}
+   
             <div className="swiper-btn-wrap d-flex align-items-center">
               <div className="slider-btn prev-btn-1">
                 <i style={{ cursor: "pointer" }} className="bi bi-arrow-left" />

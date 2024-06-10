@@ -67,7 +67,6 @@ App.getInitialProps = async (appContext) => {
 		const [ settings ] = await Promise.all([
 			getSettings(client),
 		])
-
 		return { 
 		  ..._appProps, 
 		  pageProps: { 
@@ -77,7 +76,6 @@ App.getInitialProps = async (appContext) => {
 		  } 
 	  };
 	} catch (error) {
-    console.log(error);
 		return { ..._appProps };
 	}
 };

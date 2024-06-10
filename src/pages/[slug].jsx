@@ -14,7 +14,6 @@ import PageBuilder from "../components/PageBuilder";
 export const getStaticProps = async ({ draftMode = false, params = {} }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
   const page = await getPageBySlug(client, params.slug)
-
   if (!page || isEmpty(page)) {
     return {
       notFound: true,
@@ -45,7 +44,7 @@ function Page(props) {
       {
         props.page.show_banner && <Breadcrumb pageName={props.page.title} pageTitle={props.page.title} img={props.page.banner_image}/>
       }
-      <PageBuilder build={props.page.pageBuilder} />
+      <PageBuilder global={props.global} build={props.page.pageBuilder} />
     </Layout>
   );
 }

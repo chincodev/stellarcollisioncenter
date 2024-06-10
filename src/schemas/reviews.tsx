@@ -27,17 +27,12 @@ export default defineType({
             name: 'description',
             title: 'Description',
             type: 'string',
-            validation: (rule) => rule.required(),
         },
-        {
-            title: 'Reviews List',
-            name: 'reviews_list',
-            description: 'Select Reviews to Show',
+        defineField({
+            name: 'content',
+            title: 'Content',
             type: 'array',
-            of: [{
-                type: 'reference',
-                to: [{type: 'testimonial'}]
-            }],
-        },
+            of: [{ type: "testimonial" }]
+        }),
     ],
 })

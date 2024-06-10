@@ -6,45 +6,28 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
+      name: 'previewTitle',
+      title: 'previewTitle',
       type: 'string',
+      initialValue:'Contact Form',
+      hidden: true,
+      readOnly: true
     }),
-
     defineField({
       name: 'phoneSectionTitle',
       title: 'Phone Section Title',
       type: 'string',
     }),
     defineField({
-      name: 'phoneNumber',
-      title: 'Phone Number',
-      type: 'string',
-    }),
-
-    defineField({
       name: 'addressSectionTitle',
       title: 'Address Section Title',
       type: 'string',
     }),
     defineField({
-      name: 'address',
-      title: 'Address',
+      name: 'form_title',
+      title: 'Form Title',
       type: 'string',
     }),
-    defineField({
-      name: 'addressLineTwo',
-      title: 'Address Line 2',
-      type: 'string',
-    }),
-
-
-    defineField({
-      name: 'buttonLabel',
-      title: 'Button Label',
-      type: 'string',
-    }),
-
     defineField({
       name: 'namePlaceholder',
       title: 'Name Input Placeholder',
@@ -65,7 +48,18 @@ export default defineType({
       title: 'Message Input Placeholder',
       type: 'string',
     }),
-
-
+    defineField({
+      name: 'buttonLabel',
+      title: 'Button Label',
+      type: 'string',
+    })
   ],
+  preview: {
+    select: {
+        title: 'previewTitle',
+        // slug: 'slug',
+        // description: 'description',
+        // image: 'coverImage'
+    }
+  },
 })

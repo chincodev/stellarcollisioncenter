@@ -67,7 +67,7 @@ function Footer1(props) {
                 props.footerRightNavigation && props.footerRightNavigation.items && Array.isArray(props.footerRightNavigation.items) && props.footerRightNavigation.items.length > 0 && props.footerRightNavigation.items.map(x => <div className="hotline mb-20">
                   <div className="hotline-info">
                     <h6 className="">
-                      {console.log(x)}
+                 
                     <Link legacyBehavior href={"/"+x.slug.current}>
                       <a>{x.short_title ? x.short_title : x.title}</a>
                     </Link>

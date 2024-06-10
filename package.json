@@ -3,6 +3,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next",
+    "postbuild": "next-sitemap",
     "format": "npx prettier --write . --ignore-path .gitignore",
     "lint": "next lint -- --ignore-path .gitignore",
     "lint:fix": "npm run format && npm run lint -- --fix",
@@ -23,6 +24,7 @@
     "bootstrap": "^5.3.3",
     "next": "14.1.0",
     "next-sanity": "5.5.11",
+    "next-sitemap": "^4.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^5.2.1",

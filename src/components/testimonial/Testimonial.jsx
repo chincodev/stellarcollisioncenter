@@ -8,6 +8,7 @@ import SwiperCore, {
 import { Swiper, SwiperSlide } from "swiper/react";
 import { getClient } from '~/lib/sanity.client'
 import imageUrlBuilder from '@sanity/image-url';
+import { isEmpty } from "lodash";
 SwiperCore.use([Navigation, Pagination, Autoplay, EffectFade]);
 function Testimonial(props) {
   const client = getClient(undefined)
@@ -56,6 +57,7 @@ function Testimonial(props) {
       <div className="container">
         <div className="row mb-60">
           <div className="col-lg-12">
+            
             <div className="section-title2 text-center">
               <h2>{props.title}</h2>
             </div>
@@ -69,7 +71,7 @@ function Testimonial(props) {
           >
             <div className="swiper-wrapper">
              {
-                props.reviews_list.map(x => <SwiperSlide className="swiper-slide">
+                props.content.map(x => <SwiperSlide key={x._key} className="swiper-slide">
                 <div className="testimonial-wrap">
                   <div className="testimonial-content text-center">
                     <div className="quat-icon">
@@ -101,7 +103,7 @@ function Testimonial(props) {
                       <span>{x.role}</span>
                     </div>
                     <p>
-                    {x.body}
+                    {x.text}
                     </p>
                     <div className="review">
                       <ul>
@@ -124,7 +126,8 @@ function Testimonial(props) {
                     </div>
                   </div>
                   <div className="testimonial-img">
-                    <img src={props.picture ? builder.image(props.picture).url() : ""} alt={props.picture ? props.picture.alt : ''} />
+     
+                      {!isEmpty(x.profile_picture) && <img src={builder.image(x.profile_picture)} alt={x.profile_picture.alt} />}
                   </div>
                 </div>
               </SwiperSlide>)

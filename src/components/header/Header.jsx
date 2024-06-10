@@ -33,7 +33,7 @@ function reducer(state, action) {
 
 function Header(props) {
   const { title, navId, items, _id } = props.mainNav
-  const currentRoute = useRouter().pathname;
+  const currentRoute = useRouter().asPath;
   const [state, dispatch] = useReducer(reducer, initialState);
   const headerRef = useRef(null);
   const handleScroll = () => {
@@ -95,14 +95,14 @@ function Header(props) {
             {
               items && Array.isArray(items) && items.length > 0 && items.map(x => 
                  !x.items ? (
-                    <li className={currentRoute === "/"+x.slug.current ? 'active' : ''}>
-                    <Link legacyBehavior href={'/'+x.slug.current}>
+                    <li className={currentRoute === "/"+x.slug.current.replace('home', '') ? 'active' : ''}>{console.log(currentRoute)}
+                    <Link legacyBehavior href={'/'+x.slug.current.replace('home', '')}>
                       <a>{x.title}</a>
                     </Link>
                   </li>
                 ) : (
                   <li className={currentRoute.includes("/services") ? 'active menu-item-has-children' : 'menu-item-has-children'}>
-              <Link legacyBehavior href={`/${x.slug.current}`}>
+              <Link legacyBehavior href={`/${x.slug.current.replace('home', '')}`}>
                 <a>{x.title}</a>
               </Link>
               <i

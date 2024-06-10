@@ -103,7 +103,15 @@ export default defineType({
                 defineArrayMember({
                     name: 'defaultContentSection',
                     type: 'defaultContentSection',
-                })
+                }),
+                defineArrayMember({
+                    name: 'contact',
+                    type: 'contact',
+                }),
+                defineArrayMember({
+                    name: 'map',
+                    type: 'map',
+                }),
             ],
         }),
     ],
