@@ -1,5 +1,9 @@
-userAgent: '*',
-allow: '/',
-disallow: /private/
-disallow: /privacy-policy
-disallow: /terms-conditions
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://stellarcollisioncenter.com/
+
+# Sitemaps
+Sitemap: https://stellarcollisioncenter.com/sitemap.xml

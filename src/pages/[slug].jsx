@@ -27,6 +27,7 @@ export const getStaticProps = async ({ draftMode = false, params = {} }) => {
       token: draftMode ? readToken : '',
       page,
     },
+    revalidate: 10
   }
 }
 
