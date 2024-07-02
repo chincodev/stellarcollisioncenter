@@ -19,7 +19,6 @@ export const getStaticProps = async ({ draftMode = false, params = {} }) => {
       notFound: true,
     }
   }
-
   return {
     props: {
       draftMode,
@@ -36,11 +35,12 @@ function Page(props) {
   return (
     <Layout
       global={props.global}
-      title={props.page.seo_title}
-      description={props.page.seo_description}
-      image={props.page.og_card_image}
-      url={"/"+(props.page.slug === "home" ? '' : props.page.slug)}
+      seo_title={props.page.seo_title}
+      seo_description={props.page.seo_description}
+      og_card_image={props.global.settings.og_card_image}
+      url={props.global.settings.url+"/"+props.page.slug.current}
     >
+     {console.log(props)}
       <ToastContainer />
       {
         props.page.show_banner && <Breadcrumb pageName={props.page.title} pageTitle={props.page.title} img={props.page.banner_image}/>

@@ -95,7 +95,7 @@ function Header(props) {
             {
               items && Array.isArray(items) && items.length > 0 && items.map(x => 
                  !x.items ? (
-                    <li className={currentRoute === "/"+x.slug.current.replace('home', '') ? 'active' : ''}>{console.log(currentRoute)}
+                    <li className={currentRoute === "/"+x.slug.current.replace('home', '') ? 'active' : ''}>
                     <Link legacyBehavior href={'/'+x.slug.current.replace('home', '')}>
                       <a>{x.title}</a>
                     </Link>

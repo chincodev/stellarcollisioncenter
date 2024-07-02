@@ -21,7 +21,7 @@ export default defineType({
             type: 'string',
             title: 'Meta Description',
             description:'A short description about page',
-            validation: Rule => Rule.required().min(10).max(160)
+            validation: Rule => Rule.required().min(10).max(255)
         }),
         defineField({
             name: 'seo_keywords', 
