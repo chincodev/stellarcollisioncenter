@@ -5,14 +5,12 @@ import SwiperCore, {
   Navigation,
   Pagination,
 } from "swiper";
-import { getClient } from '~/lib/sanity.client'
-import imageUrlBuilder from '@sanity/image-url';
+import getImageUrl from "../GetImageUrl";
 SwiperCore.use([Navigation, Pagination, Autoplay, EffectFade]);
 
 function ChooseUs(props) {
 
-  const client = getClient(undefined)
-  const builder = imageUrlBuilder(client);
+
 
   return (
     <div className="h2-choose-area mb-120">
@@ -32,7 +30,7 @@ function ChooseUs(props) {
             props.features.map(x => <div className="col-lg-3 col-md-4 col-sm-6 col-10">
               <div className="single-card">
                 <div className="icon">
-                  <img src={builder.image(x.icon).url()} alt={x.icon.alt} />
+                  <img src={getImageUrl(x.icon)} alt={x.icon.alt} />
                 </div>
                 <div className="content">
                   <h4>{x.title}</h4>

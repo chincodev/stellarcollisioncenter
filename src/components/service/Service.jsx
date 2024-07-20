@@ -5,19 +5,13 @@ import SwiperCore, {
   Navigation,
   Pagination,
 } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import PostBody from '../PostBody'
-import { getClient } from '~/lib/sanity.client'
-import imageUrlBuilder from '@sanity/image-url';
 import { isEmpty } from "lodash";
+import getImageUrl from "../GetImageUrl";
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 function Service(props) {
-  const client = getClient(undefined)
-  const builder = imageUrlBuilder(client);
 
-  const imageProps = builder.image(props.image);
-  const iconProps = builder.image(props.icon);
 
   const serviceSlider = useMemo(() => {
     return {
@@ -281,13 +275,13 @@ function Service(props) {
                               <img src="assets/images/icon/h2-services-img-bg.svg" alt="" />
                             </div> */}
       
-                            <img className="img-fluid" src={imageProps.url()} alt={props.image.alt} />
+                            <img className="img-fluid" src={getImageUrl(props.image)} alt={props.image.alt} />
                           
                           </div>
                         </div>
                         <div className="col-lg-7">
                           <div>
-                            {!isEmpty(props.icon) && <img src={builder.image(props.icon)} alt={props.icon.alt} />}
+                            {!isEmpty(props.icon) && <img src={getImageUrl(props.icon)} alt={props.icon.alt} />}
                             <PostBody content={props.contentBlock} />
                           </div>
                         </div>
@@ -299,7 +293,7 @@ function Service(props) {
                       <>
                         <div className="col-lg-7">
                           <div>
-                            {!isEmpty(props.icon) && <img src={builder.image(props.icon)} alt={props.icon.alt} />}
+                            {!isEmpty(props.icon) && <img src={getImageUrl(props.icon)} alt={props.icon.alt} />}
                             <PostBody content={props.contentBlock} />
                           </div>
                         </div>
@@ -310,7 +304,7 @@ function Service(props) {
                               <img src="assets/images/icon/h2-services-img-bg.svg" alt="" />
                             </div> */}
       
-                            <img className="img-fluid" src={imageProps.url()} alt={props.image.alt} />
+                            <img className="img-fluid" src={getImageUrl(props.image)} alt={props.image.alt} />
                           
                           </div>
                         </div>
@@ -327,13 +321,13 @@ function Service(props) {
                               <img src="assets/images/icon/h2-services-img-bg.svg" alt="" />
                             </div> */}
       
-                            <img className="img-fluid" src={imageProps.url()} alt={props.image.alt} />
+                            <img className="img-fluid" src={getImageUrl(props.image)} alt={props.image.alt} />
                           
                           </div>
                         </div>
                         <div className="col-lg-12">
                           <div>
-                            {!isEmpty(props.icon) && <img src={builder.image(props.icon)} alt={props.icon.alt} />}
+                            {!isEmpty(props.icon) && <img src={getImageUrl(props.icon)} alt={props.icon.alt} />}
                             <PostBody content={props.contentBlock} />
                           </div>
                         </div>
@@ -346,7 +340,7 @@ function Service(props) {
                       <>
                         <div className="col-lg-12">
                           <div>
-                            {!isEmpty(props.icon) && <img src={builder.image(props.icon)} alt={props.icon.alt} />}
+                            {!isEmpty(props.icon) && <img src={getImageUrl(props.icon)} alt={props.icon.alt} />}
                             <PostBody content={props.contentBlock} />
                           </div>
                         </div>
@@ -357,7 +351,7 @@ function Service(props) {
                               <img src="assets/images/icon/h2-services-img-bg.svg" alt="" />
                             </div> */}
       
-                            <img className="img-fluid" src={imageProps.url()} alt={props.image.alt} />
+                            <img className="img-fluid" src={getImageUrl(props.image)} alt={props.image.alt} />
                           
                           </div>
                         </div>
@@ -369,7 +363,7 @@ function Service(props) {
                 <>
                   <div className="col-lg-12">
                     <div>
-                      {!isEmpty(props.icon) && <img src={builder.image(props.icon)} alt={props.icon.alt} />}
+                      {!isEmpty(props.icon) && <img src={getImageUrl(props.icon)} alt={props.icon.alt} />}
                       <PostBody content={props.contentBlock} />
                     </div>
                   </div>

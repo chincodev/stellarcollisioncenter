@@ -7,15 +7,10 @@ import SwiperCore, {
   Pagination,
 } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import imageUrlBuilder from '@sanity/image-url';
-import { getClient } from '~/lib/sanity.client'
+import getImageUrl from '../../components/GetImageUrl'
 SwiperCore.use([Navigation, Pagination, Autoplay, EffectFade]);
 
 function Banner2(props) {
-  
-  const client = getClient(undefined)
-  const builder = imageUrlBuilder(client);
-  const imageProps = builder.image(props.picture);
 
   function lastWord(words) {
     var n = words.split(" ");
@@ -64,7 +59,7 @@ function Banner2(props) {
                   </div>
                   <div className="col-lg-6 d-flex justify-content-center">
                     <div className="hero-img">
-                      <img src={imageProps.url()} alt={props.picture.alt} />
+                      <img src={getImageUrl(props.picture)} alt={props.picture.alt} />
                     </div>
                   </div>
                 </div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import imageUrlBuilder from '@sanity/image-url';
 import { getClient } from '~/lib/sanity.client'
+import getImageUrl from "../GetImageUrl";
 
 function Breadcrumb({ pageName = "Page Name", pageTitle = "Page Title", img }) {
 
@@ -28,11 +29,14 @@ function Breadcrumb({ pageName = "Page Name", pageTitle = "Page Title", img }) {
               </nav>
             </div>
             <div className="banner-img d-lg-none d-block">
-              <img
-                className="img-fluid"
-                src={img ? builder.image(img).url() : ""}
-                alt=""
-              />
+              {
+                img && <img
+                  className="img-fluid"
+                  src={getImageUrl(img)}
+                  alt={img.alt}
+                />
+              }
+              
             </div>
           </div>
           <div className="col-lg-6">
@@ -44,11 +48,13 @@ function Breadcrumb({ pageName = "Page Name", pageTitle = "Page Title", img }) {
                   alt=""
                 />
               </div>
-              <img
-                className="img-fluid"
-                src={img ? builder.image(img).url() : ""}
-                alt={img ? img.alt : ''}
-              />
+              {
+                img && <img
+                  className="img-fluid"
+                  src={getImageUrl(img)}
+                  alt={img.alt}
+                />
+              }
             </div>
           </div>
         </div>

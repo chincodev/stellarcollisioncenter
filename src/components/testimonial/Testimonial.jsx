@@ -6,13 +6,9 @@ import SwiperCore, {
   Pagination,
 } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { getClient } from '~/lib/sanity.client'
-import imageUrlBuilder from '@sanity/image-url';
-import { isEmpty } from "lodash";
+import getImageUrl from "../GetImageUrl";
 SwiperCore.use([Navigation, Pagination, Autoplay, EffectFade]);
 function Testimonial(props) {
-  const client = getClient(undefined)
-  const builder = imageUrlBuilder(client);
   const testimonialSlider = useMemo(() => {
     return {
       spaceBetween: 24,
@@ -126,8 +122,9 @@ function Testimonial(props) {
                     </div>
                   </div>
                   <div className="testimonial-img">
-     
-                      {!isEmpty(x.profile_picture) && <img src={builder.image(x.profile_picture)} alt={x.profile_picture.alt} />}
+                    {
+                      x.profile_picture && <img src={getImageUrl(x.profile_picture)} alt={x.profile_picture.alt} />
+                    }
                   </div>
                 </div>
               </SwiperSlide>)
