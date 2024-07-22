@@ -1,13 +1,10 @@
 import Link from "next/link";
 import React from "react";
-import BlogCategoryWidget from "../components/blog/BlogCategoryWidget";
-import BlogComment from "../components/blog/BlogComment";
-import BlogRecentPostWidget from "../components/blog/BlogRecentPostWidget";
-import BlogSocialWidget from "../components/blog/BlogSocialWidget";
-import BlogTagWidget from "../components/blog/BlogTagWidget";
-import SearchWidget from "../components/blog/SearchWidget";
-import Breadcrumb from "../components/breadcrumb/Breadcrumb";
-import Layout from "../layout/Layout";
+import BlogCategoryWidget from "../../components/blog/BlogCategoryWidget";
+import BlogRecentPostWidget from "../../components/blog/BlogRecentPostWidget";
+import BlogTagWidget from "../../components/blog/BlogTagWidget";
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
+import Layout from "../../components/Layout";
 
 function BlogDetailsPage() {
   return (
@@ -189,15 +186,12 @@ function BlogDetailsPage() {
                   </div>
                 </div>
               </div>
-              <BlogComment />
             </div>
             <div className="col-lg-4">
               <div className="widget-area">
-                <SearchWidget />
                 <BlogCategoryWidget />
                 <BlogRecentPostWidget />
                 <BlogTagWidget />
-                <BlogSocialWidget />
               </div>
             </div>
           </div>
