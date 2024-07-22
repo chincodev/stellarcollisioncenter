@@ -20,6 +20,7 @@ import map from './map'
 import post from './post'
 import author from './author'
 import tag from './tag'
+import category from './category'
 
 export const schemaTypes = [blockContent]
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -43,6 +44,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     map,
     post,
     author,
-    tag
+    tag,
+    category
   ]
 }

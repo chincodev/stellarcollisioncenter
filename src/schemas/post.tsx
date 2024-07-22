@@ -2,9 +2,9 @@ import { BookIcon } from '@sanity/icons'
 import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
 
-import authorType from './author.ts'
-import tagType from './tag.tsx'
-import categoryType from './category.ts'
+import authorType from './author'
+import tagType from './tag'
+import categoryType from './category'
 
 
 export default defineType({
@@ -161,12 +161,12 @@ export default defineType({
                 }
             ]
         }),
-        // defineField({
-        //     name: 'category',
-        //     title: 'Category',
-        //     type: 'reference',
-        //     to: { type: categoryType.name },
-        // }),
+        defineField({
+            name: 'category',
+            title: 'Category',
+            type: 'reference',
+            to: { type: categoryType.name },
+        }),
     ],
     preview: {
         select: {

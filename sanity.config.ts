@@ -63,9 +63,9 @@ export default defineConfig({
             ...S.documentTypeListItems().filter(listItem => ['navigation', 'page'].includes(listItem.getId())),
             // Regular document types
             S.divider(),
-            ...S.documentTypeListItems().filter(listItem => !['siteConfig', 'navigation', 'company', 'page', 'post', 'author', 'tag'].includes(listItem.getId())),
+            ...S.documentTypeListItems().filter(listItem => !['siteConfig', 'navigation', 'company', 'page', 'post', 'author', 'tag', 'category'].includes(listItem.getId())),
             S.divider(),
-            ...S.documentTypeListItems().filter(listItem => ['post', 'author', 'tag'].includes(listItem.getId())),
+            ...S.documentTypeListItems().filter(listItem => ['post', 'author', 'tag', 'category'].includes(listItem.getId())),
         
           ]),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
