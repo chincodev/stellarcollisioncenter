@@ -1,13 +1,9 @@
 import Link from "next/link";
 import React from "react";
-import imageUrlBuilder from '@sanity/image-url';
-import { getClient } from '~/lib/sanity.client'
 import getImageUrl from "../GetImageUrl";
 
 function Breadcrumb({ pageName = "Page Name", pageTitle = "Page Title", img }) {
 
-  const client = getClient(undefined)
-  const builder = imageUrlBuilder(client);
   return (
     <div className="inner-page-banner">
       <div className="container">

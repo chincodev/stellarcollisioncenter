@@ -22,7 +22,7 @@ const SEO = (props) => {
             <meta property="og:description" content={description} key='ogDescription'></meta>
             <meta property="og:image" content={image ? urlForImage(image).height(256).width(256).fit('crop').url() : ''} key='ogImage'/> 
             <meta property="og:url" content={url} key='ogUrl'/>
-            <meta property="og:site_name" content={'Sogomonyan Law Group,  APC'} key='ogSiteName'/>
+            <meta property="og:site_name" content={'Stelllar Collicion Center'} key='ogSiteName'/>
             <meta property="og:type" content="website" key='ogType'/>
             <meta name="twitter:card" content={'summary'} key='ogTwitterCard'/>
             <meta name="twitter:title" content={title} key='ogTwitterTitle'/>

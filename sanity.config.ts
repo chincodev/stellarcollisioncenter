@@ -60,12 +60,13 @@ export default defineConfig({
                   .documentId("siteConfig")
                   
               ),
-            ...S.documentTypeListItems().filter(listItem => ['navigation'].includes(listItem.getId())),
+            ...S.documentTypeListItems().filter(listItem => ['navigation', 'page'].includes(listItem.getId())),
             // Regular document types
             S.divider(),
-            ...S.documentTypeListItems().filter(listItem => !['siteConfig', 'navigation', 'company', 'page'].includes(listItem.getId())),
+            ...S.documentTypeListItems().filter(listItem => !['siteConfig', 'navigation', 'company', 'page', 'post', 'author', 'tag'].includes(listItem.getId())),
             S.divider(),
-            ...S.documentTypeListItems().filter(listItem => ['page'].includes(listItem.getId())),
+            ...S.documentTypeListItems().filter(listItem => ['post', 'author', 'tag'].includes(listItem.getId())),
+        
           ]),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       // You can add any React component to `S.view.component` and it will be rendered in the pane

@@ -31,14 +31,12 @@ export default defineType({
             type: 'string',
        
         }),
-
         defineField({
             name: 'short_title',
             title: 'Short Title',
             type: 'string',
             description: 'Commonly used in navbar links labels'
         }),
-
         defineField({
             name: 'show_banner',
             title: 'Enable Banner',

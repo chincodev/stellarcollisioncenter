@@ -17,6 +17,9 @@ import reviews from './reviews'
 import servicesSlider from './servicesSlider'
 import contact from './contact'
 import map from './map'
+import post from './post'
+import author from './author'
+import tag from './tag'
 
 export const schemaTypes = [blockContent]
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -37,6 +40,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     reviews,
     servicesSlider,
     contact,
-    map
+    map,
+    post,
+    author,
+    tag
   ]
 }
