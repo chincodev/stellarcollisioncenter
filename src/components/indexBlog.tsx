@@ -1,7 +1,7 @@
 import React from "react";
-import BlogGrid from "../../components/blog/BlogGrid";
-import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
-import Layout from "../../components/Layout";
+// import BlogGrid from "./blog/BlogGrid";
+// import Breadcrumb from "./breadcrumb/Breadcrumb";
+// import Layout from "./Layout";
 
 function BlogStandardPage() {
   return (<></>
